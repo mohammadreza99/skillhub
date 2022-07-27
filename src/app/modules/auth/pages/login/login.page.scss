@@ -42,7 +42,13 @@
   }
 
   .col-5 {
-    transform: translateX(-10%);
+    transform: translateX(54%);
+    @include media-breakpoint-up(lg) {
+      transform: translateX(56%);
+    }
+    @include media-breakpoint-up(xl) {
+      transform: translateX(63%);
+    }
   }
 
   .people-item {
