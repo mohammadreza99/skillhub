@@ -1,85 +1,146 @@
-@use "sass:math";
+@import "mixins";
 
-$particleSize: 20vmin;
-$animationDuration: 6s;
-$amount: 20;
+.row > .col-lg-6 {
+  padding: 35px;
+  font-size: 14px;
 
-.container-fluid {
-  overflow: hidden;
-  position: relative;
-}
-
-form > div {
-  width: 400px;
-
-  > *:not(ng-button) {
-    display: block;
-    margin-bottom: 25px;
+  @include media-breakpoint-up(lg) {
+    padding: 47px 70px;
   }
 }
 
-.row {
-  background-image: url("../../../../../assets/images/login-bg.jpg");
-  background-size: cover;
+.or {
+  position: relative;
+  color: #6c757d;
+  text-align: center;
 
-  .box {
-    background-color: var(--surface-b);
-    border: 1px solid var(--surface-d);
-    z-index: 20000;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    top: 50%;
+    width: 46%;
+    background-color: #6c757d;
+    transform: translateY(-50%);
   }
 
   &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
     left: 0;
-    background: linear-gradient(
-        to left,
-        rgba(0, 168, 255, 0.5),
-        rgba(185, 0, 255, 0.5)
-    );
-    pointer-events: none;
+  }
+
+  &::after {
+    right: 0;
   }
 }
 
-.background {
-  width: 100vw;
-  height: 100vh;
-  background: #3e1e68;
-  opacity: 0.4;
-}
+.people {
+  background-color: #6366F1;
 
-.background span {
-  width: $particleSize;
-  height: $particleSize;
-  border-radius: $particleSize;
-  backface-visibility: hidden;
-  position: absolute;
-  animation-name: move;
-  animation-duration: $animationDuration;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  $colors: (#583c87, #e45a84, #ffacac);
-  @for $i from 1 through $amount {
-    &:nth-child(#{$i}) {
-      color: nth($colors, random(length($colors)));
-      top: random(100) * 1%;
-      left: random(100) * 1%;
-      animation-duration: math.div(random($animationDuration * 10) , 10) * 1s + 10s;
-      animation-delay: math.div(random(($animationDuration + 10s) * 10) , 10) * -1s;
-      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
-      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
-      $x: if(random() > 0.5, -1, 1);
-      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+  h1 span {
+    color: #0aa9f2;
+  }
+
+  .col-5 {
+    transform: translateX(-10%);
+  }
+
+  .people-item {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 0.75rem;
+    text-align: center;
+    width: 200px;
+
+    img {
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 24px;
     }
   }
 }
 
-@keyframes move {
-  100% {
-    transform: translate3d(0, 0, 1px) rotate(360deg);
-  }
-}
+//
+//$particleSize: 20vmin;
+//$animationDuration: 6s;
+//$amount: 20;
+//
+//.container-fluid {
+//  overflow: hidden;
+//  position: relative;
+//}
+//
+//form > div {
+//  width: 400px;
+//
+//  > *:not(ng-button) {
+//    display: block;
+//    margin-bottom: 25px;
+//  }
+//}
+//
+//.row {
+//  background-image: url("../../../../../assets/images/login-bg.jpg");
+//  background-size: cover;
+//
+//  .box {
+//    background-color: var(--surface-b);
+//    border: 1px solid var(--surface-d);
+//    z-index: 20000;
+//  }
+//
+//  &::before {
+//    content: "";
+//    display: block;
+//    position: absolute;
+//    width: 100%;
+//    height: 100%;
+//    top: 0;
+//    left: 0;
+//    background: linear-gradient(
+//        to left,
+//        rgba(0, 168, 255, 0.5),
+//        rgba(185, 0, 255, 0.5)
+//    );
+//    pointer-events: none;
+//  }
+//}
+//
+//.background {
+//  width: 100vw;
+//  height: 100vh;
+//  background: #3e1e68;
+//  opacity: 0.4;
+//}
+//
+//.background span {
+//  width: $particleSize;
+//  height: $particleSize;
+//  border-radius: $particleSize;
+//  backface-visibility: hidden;
+//  position: absolute;
+//  animation-name: move;
+//  animation-duration: $animationDuration;
+//  animation-timing-function: linear;
+//  animation-iteration-count: infinite;
+//  $colors: (#583c87, #e45a84, #ffacac);
+//  @for $i from 1 through $amount {
+//    &:nth-child(#{$i}) {
+//      color: nth($colors, random(length($colors)));
+//      top: random(100) * 1%;
+//      left: random(100) * 1%;
+//      animation-duration: math.div(random($animationDuration * 10) , 10) * 1s + 10s;
+//      animation-delay: math.div(random(($animationDuration + 10s) * 10) , 10) * -1s;
+//      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+//      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+//      $x: if(random() > 0.5, -1, 1);
+//      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+//    }
+//  }
+//}
+//
+//@keyframes move {
+//  100% {
+//    transform: translate3d(0, 0, 1px) rotate(360deg);
+//  }
+//}

@@ -1,67 +1,95 @@
-<div class="container-fluid h-100">
-  <div class="row align-content-center justify-content-center h-100">
-    <div class="col-12">
+<div class="container-fluid h-100 p-0">
+  <div class="row align-items-stretch h-100 no-gutters">
+    <div class="col-lg-6 d-none d-lg-block people">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <div class="people-item shadow-lg">
+            <img src="./assets/images/3_2x.png" alt="Alexandra">
+            <h6>Elena Alexandra</h6>
+            <small class="text-muted">Product Designer</small>
+          </div>
+        </div>
+        <div class="col-7">
+          <h1>
+            Build <br> Your <span>Professional</span> <br> Network
+          </h1>
+        </div>
+        <div class="col-5">
+          <div class="people-item shadow-lg">
+            <img src="./assets/images/1_2x.png" alt="Alexandra">
+            <h6>Elena Alexandra</h6>
+            <small class="text-muted">Product Designer</small>
+          </div>
+        </div>
+        <div class="col-12 mt-4">
+          <div class="people-item shadow-lg m-auto">
+            <img src="./assets/images/2_2x.png" alt="Alexandra">
+            <h6>Elena Alexandra</h6>
+            <small class="text-muted">Product Designer</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <ng-logo class="mb-4"></ng-logo>
+      <h1>Sign Up</h1>
+      <p>Take The Opportunity To Help The Community</p>
       <form
-        class="form-row justify-content-center"
+        class="form-row justify-content-center px-lg-4 mt-5"
         [formGroup]="form"
         (ngSubmit)="onSubmit()"
       >
-        <div class="p-4 box rounded-lg shadow">
-          <ng-logo class="text-center mb-2"></ng-logo>
-          <h3 class="text-center">ورود</h3>
-          <ng-input-text
-            formControlName="email"
-            [showRequiredStar]="false"
-            icon="pi pi-user"
-            placeholder="نام کاربری"
-            [errors]="{'required':'این فیلد الزامیست.','email':'ایمیل نامعتبر است.'}"
-            [rtl]="fa"
-          ></ng-input-text>
-          <ng-input-text
-            type="password"
-            icon="pi pi-key"
-            [showRequiredStar]="false"
-            formControlName="password"
-            placeholder="رمز عبور"
-            [errors]="{'required':'این فیلد الزامیست.'}"
-            [rtl]="fa"
-          ></ng-input-text>
-          <ng-single-checkbox formControlName="rememberMe" [rtl]="fa" label="مرا بخاطر بسپار"></ng-single-checkbox>
-          <ng-button-async
+        <ng-input-text
+          class="col-12 mb-4"
+          formControlName="email"
+          label="Email"
+          [showRequiredStar]="false"
+          [errors]="{'required':'Field is Required','email':'Email is invalid'}"
+          [rtl]="fa"
+        ></ng-input-text>
+        <ng-input-text
+          class="col-12 mb-4"
+          formControlName="password"
+          type="password"
+          [showRequiredStar]="false"
+          label="Password"
+          [errors]="{'required':'Field is Required'}"
+          [rtl]="fa"
+        ></ng-input-text>
+        <div class="d-flex align-items-center justify-content-between col-12 mb-4">
+          <ng-single-checkbox formControlName="rememberMe" [rtl]="fa" label="Remember Me"></ng-single-checkbox>
+          <a href="">Forget Password</a>
+        </div>
+        <ng-button-async
+          class="col-12"
+          [full]="true"
+          type="submit"
+          label="Register"
+          (clickAsync)="onSubmit()"
+        ></ng-button-async>
+        <small class="text-muted d-block mt-4 mb-5 text-center col-12">
+          New to SkillHub?
+          <a class="text-decoration-none" routerLink="/auth/register">Join Now</a>
+        </small>
+        <div class="other-ways col-12">
+          <div class="or mb-5">or</div>
+          <ng-button
+            class="mb-3"
+            appearance="outlined"
+            color="secondary"
             [full]="true"
-            type="submit"
-            label="ورود"
-            (clickAsync)="onSubmit()"
-          ></ng-button-async>
-          <small class="text-muted mt-3 text-center">
-            حساب کاربری ندارید؟
-            <a class="text-decoration-none" routerLink="/auth/register"> ثبت نام کنید</a>
-          </small>
+            label="Connect Via Google"
+            (click)="onSubmit()"
+          ></ng-button>
+          <ng-button
+            appearance="outlined"
+            color="secondary"
+            [full]="true"
+            label="Connect Via Facebook"
+            (click)="onSubmit()"
+          ></ng-button>
         </div>
       </form>
     </div>
-  </div>
-
-  <div class="background">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
   </div>
 </div>
