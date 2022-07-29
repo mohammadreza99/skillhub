@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {UntypedFormGroup, UntypedFormControl, Validators} from '@angular/forms';
-import {LanguageChecker} from '@core/utils';
-import {AuthService} from '@core/http';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import {LanguageChecker} from "@core/utils";
+import {AuthService} from "@core/http";
+import {Router} from "@angular/router";
+import {UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'ng-login-page',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'ng-reset-password',
+  templateUrl: './reset-password.page.html',
+  styleUrls: ['./reset-password.page.scss']
 })
-export class LoginPage extends LanguageChecker implements OnInit {
+export class ResetPasswordPage extends LanguageChecker implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
     super();
   }

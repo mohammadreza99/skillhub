@@ -5,13 +5,13 @@ import {NotFoundComponent} from '@ng/components/not-found/not-found.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
     loadChildren: (): Promise<Type<any>> =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
     // canLoad: [PagesGuard],
   },
   {
-    path: '',
+    path: 'main',
     loadChildren: (): Promise<Type<any>> =>
       import('./modules/main.module').then((m) => m.MainModule),
     // canLoad: [AuthGuard],
@@ -19,6 +19,11 @@ export const routes: Routes = [
   {
     path: '404',
     component: NotFoundComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full',
   },
   {
     path: '**',

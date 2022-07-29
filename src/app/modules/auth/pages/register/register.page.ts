@@ -17,8 +17,8 @@ export class RegisterPage extends LanguageChecker implements OnInit {
   form = new UntypedFormGroup({
     email: new UntypedFormControl(null, [Validators.required, Validators.email]),
     password: new UntypedFormControl(null, [Validators.required]),
-    confirmPassword: new UntypedFormControl(null, [Validators.required]),
-  }, {validators: this.checkPasswords});
+    rememberMe: new UntypedFormControl(false),
+  });
 
   ngOnInit(): void {
   }
@@ -37,9 +37,4 @@ export class RegisterPage extends LanguageChecker implements OnInit {
     }
   }
 
-  checkPasswords(group: AbstractControl): ValidationErrors | null {
-    const pass = group.get('password').value;
-    const confirmPass = group.get('confirmPassword').value;
-    return pass === confirmPass ? null : {notSame: true};
-  }
 }
